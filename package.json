@@ -1,6 +1,6 @@
 {
   "name": "repocrypt",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "repocrypt CLI",
   "types": "build/types/types.d.ts",
   "bin": {
