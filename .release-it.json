@@ -1,0 +1,26 @@
+{
+  "hooks": {
+    "before:init": ["yarn verify", "yarn build:clean"],
+    "after:release": "echo Successfully released ${name} v${version} to ${repo.repository}."
+  },
+  "git": {
+    "commitMessage": "Release v${version}",
+    "requireBranch": "master",
+    "tagName": "v${version}",
+    "tagAnnotation": "Release v${version}"
+  },
+  "github": {
+    "release": true,
+    "releaseName": "v${version}"
+  },
+  "npm": {
+    "publish": true
+  },
+  "plugins": {
+    "@release-it/keep-a-changelog": {
+      "addUnreleased": "true",
+      "addVersionUrl": "true",
+      "filename": "CHANGELOG.md"
+    }
+  }
+}
