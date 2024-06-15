@@ -29,8 +29,7 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "gluegun": "^5.1.6",
-    "release-it": "^17.3.0"
+    "gluegun": "^5.1.6"
   },
   "devDependencies": {
     "@release-it/keep-a-changelog": "^5.0.0",
@@ -47,6 +46,7 @@
     "npm-check-updates": "^16.14.20",
     "prettier": "^3.3.2",
     "pretty-quick": "^4.0.0",
+    "release-it": "^17.3.0",
     "ts-jest": "^29.1.4",
     "ts-node": "^10.9.2",
     "typescript": "~5.4.5"
