@@ -1,0 +1,6 @@
+bin/
+build/
+node_modules/
+.DS_Store
+repocrypt.config.js
+yarn-error.log
