@@ -16,6 +16,8 @@ Types of Changes
 
 ## [Unreleased]
 
+## [0.4.0] - 2024-06-17
+
 ### Added
 
 - Added `repocrypt init` command to generate configuration file.
@@ -52,9 +54,10 @@ Types of Changes
 
 - Released.
 
-[unreleased]: https://github.com/brannonh/repocrypt/compare/v0.3.0...HEAD
+[unreleased]: https://github.com/brannonh/repocrypt/compare/v0.4.0...HEAD
 [0.1.0]: https://github.com/brannonh/repocrypt/releases/tag/v0.1.0
 [0.0.1]: https://github.com/brannonh/repocrypt/releases/tag/v0.0.1
 
+[0.4.0]: https://github.com/brannonh/repocrypt/compare/v0.3.0...v0.4.0
 [0.3.0]: https://github.com/brannonh/repocrypt/compare/v0.2.0...v0.3.0
 [0.2.0]: https://github.com/brannonh/repocrypt/releases/tag/v0.2.0
