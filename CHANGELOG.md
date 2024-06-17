@@ -16,6 +16,10 @@ Types of Changes
 
 ## [Unreleased]
 
+### Added
+
+- Added `repocrypt init` command to generate configuration file.
+
 ## [0.3.0] - 2024-06-17
 
 ### Changed
