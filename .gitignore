@@ -1,6 +1,10 @@
+.DS_Store
+.nyc_output
 bin/
 build/
+coverage
+dist/
 node_modules/
-.DS_Store
+npm-debug.log
 repocrypt.config.js
 yarn-error.log

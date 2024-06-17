@@ -47,7 +47,7 @@ export function decrypt(data: string, debug = false): string {
 export function decryptFile(
   inputPath: string,
   outputPath: string,
-  debug = false
+  debug = false,
 ): void {
   if (existsSync(inputPath) && statSync(inputPath).isFile()) {
     const data = readFileSync(inputPath, 'utf-8');
@@ -62,7 +62,7 @@ export function decryptFile(
 export function decryptDirectory(
   inputPath: string,
   outputPath: string,
-  debug = false
+  debug = false,
 ): void {
   if (existsSync(inputPath) && statSync(inputPath).isDirectory()) {
     const files = readdirSync(inputPath);
@@ -76,7 +76,7 @@ export function decryptDirectory(
         decryptDirectory(
           `${inputPath}/${file}`,
           `${outputPath}/${decrypt(file)}`,
-          debug
+          debug,
         );
       } else {
         const fileName = decrypt(file);

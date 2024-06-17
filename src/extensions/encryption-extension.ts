@@ -67,7 +67,7 @@ function encryptFile(inputPath: string, outputPath: string, debug = false) {
 function encryptDirectory(
   inputPath: string,
   outputPath: string,
-  debug = false
+  debug = false,
 ) {
   if (existsSync(inputPath) && statSync(inputPath).isDirectory()) {
     const files = readdirSync(inputPath);
@@ -81,7 +81,7 @@ function encryptDirectory(
         encryptDirectory(
           `${inputPath}/${file}`,
           `${outputPath}/${encrypt(file)}`,
-          debug
+          debug,
         );
       } else {
         const fileName = encrypt(file);

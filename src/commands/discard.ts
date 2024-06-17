@@ -14,7 +14,7 @@ const command: GluegunCommand = {
     const clear = await prompt.confirm('Discard source files?');
     if (clear) {
       const confirm = await prompt.confirm(
-        'Are you sure? If you have changes that need to be saved, you should encrypt the files first!'
+        'Are you sure? If you have changes that need to be saved, you should encrypt the files first!',
       );
       if (confirm) {
         print.info(`Discarding files (${config.sources.join(', ')}).`);

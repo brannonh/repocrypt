@@ -27,12 +27,12 @@ const command: GluegunCommand = {
       if (filesystem.isFile(source)) {
         encryption.encryptFile(
           source,
-          `${config.target}/${encryption.encrypt(source)}`
+          `${config.target}/${encryption.encrypt(source)}`,
         );
       } else if (filesystem.isDirectory(source)) {
         encryption.encryptDirectory(
           source,
-          `${config.target}/${encryption.encrypt(source)}`
+          `${config.target}/${encryption.encrypt(source)}`,
         );
       } else {
         print.warning(`Skipping ${source} (not a file or directory).`);
