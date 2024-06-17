@@ -16,6 +16,10 @@ Types of Changes
 
 ## [Unreleased]
 
+### Fixed
+
+- Stopped HTML-encoding of entities in config secrets.
+
 ## [0.5.0] - 2024-06-17
 
 ### Added

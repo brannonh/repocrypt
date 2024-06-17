@@ -1,8 +1,8 @@
 module.exports = {
   /* secretKey: 64-character string */
-  secretKey: '<%= props.secretKey %>',
+  secretKey: '<%- props.secretKey %>',
   /* secretIv: 32-character string */
-  secretIv: '<%= props.secretIv %>',
+  secretIv: '<%- props.secretIv %>',
   sources: ['<%= props.source %>'],
   target: '<%= props.target %>',
 };
