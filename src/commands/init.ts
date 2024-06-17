@@ -24,8 +24,8 @@ const command: GluegunCommand = {
     if (overwrite) {
       const props: Props = force
         ? {
-            secretKey: crypto.randomString(64),
-            secretIv: crypto.randomString(32),
+            secretKey: crypto.randomString(32),
+            secretIv: crypto.randomString(16),
             source: 'sources',
             target: 'encrypted',
           }
@@ -34,13 +34,13 @@ const command: GluegunCommand = {
               type: 'input',
               name: 'secretKey',
               message: 'Enter a 64-character secret key.',
-              initial: crypto.randomString(64),
+              initial: crypto.randomString(32),
             },
             {
               type: 'input',
               name: 'secretIv',
               message: 'Enter a 32-character secret key.',
-              initial: crypto.randomString(32),
+              initial: crypto.randomString(16),
             },
             {
               type: 'input',

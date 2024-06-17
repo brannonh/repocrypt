@@ -16,6 +16,10 @@ Types of Changes
 
 ## [Unreleased]
 
+### Fixed
+
+- Stopped generating invalid secrets.
+
 ## [0.5.1] - 2024-06-17
 
 ### Fixed
