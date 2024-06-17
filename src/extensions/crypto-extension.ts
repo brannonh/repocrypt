@@ -15,11 +15,11 @@ const readUInt16LE = (uInt8Array: Uint8Array, offset: number) =>
   uInt8Array[offset] + (uInt8Array[offset + 1] << 8);
 
 const asciiPrintableCharacters =
-  '!"#$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[]^_`abcdefghijklmnopqrstuvwxyz{|}~'.split(
+  '!"#$%&()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[]^_`abcdefghijklmnopqrstuvwxyz{|}~'.split(
     '',
   );
 
-const generateForCustomCharacters = (size, characters) => {
+const generateForCustomCharacters = (size: number, characters: string[]) => {
   const generateBytes = (length: number) => new Uint8Array(randomBytes(length));
 
   // Generating entropy is faster than complex math operations, so we use the simplest way
