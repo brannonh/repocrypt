@@ -16,6 +16,14 @@ Types of Changes
 
 ## [Unreleased]
 
+### Changed
+
+- Updated prompts for better visibility of affected files.
+
+### Fixed
+
+- Updated config file extension for CommonJS.
+
 ## [0.2.0] - 2024-06-17
 
 ### Fixed

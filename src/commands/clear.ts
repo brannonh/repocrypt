@@ -11,7 +11,9 @@ const command: GluegunCommand = {
       return;
     }
 
-    const clear = await prompt.confirm('Clear encrypted files?');
+    const clear = await prompt.confirm(
+      `Clear encrypted files (${config.target})?`,
+    );
     if (clear) {
       print.info(`Clearing files (${config.target}).`);
       purge.clearEncrypted(config.target);

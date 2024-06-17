@@ -13,9 +13,11 @@ const command: GluegunCommand = {
       return;
     }
 
-    const clear = await prompt.confirm('Discard source files first?');
+    const clear = await prompt.confirm(
+      `Discard source files first (${config.sources.join(', ')})?`,
+    );
     if (clear) {
-      print.info(`Clearing files (${config.sources.join(', ')}).`);
+      print.info(`Discarding files (${config.sources.join(', ')}).`);
       purge.discardSources(config.sources);
     }
 
