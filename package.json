@@ -12,7 +12,7 @@
     "clean": "rimraf -rf ./build",
     "compile": "tsc -p .",
     "compile:quiet": "tsc --noEmit",
-    "copy-templates": "copyfiles ./src/templates/* ./build/templates",
+    "copy-templates": "copyfiles -f ./src/templates/* ./build/templates",
     "coverage": "jest --coverage",
     "format": "eslint --fix && prettier \"src/**/*.{js,ts,json}\" --write",
     "snapupdate": "jest --updateSnapshot",

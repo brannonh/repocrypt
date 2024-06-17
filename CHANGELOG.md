@@ -16,6 +16,10 @@ Types of Changes
 
 ## [Unreleased]
 
+### Fixed
+
+- Config template was in the wrong location.
+
 ## [0.4.0] - 2024-06-17
 
 ### Added
