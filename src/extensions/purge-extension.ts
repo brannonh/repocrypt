@@ -9,7 +9,7 @@ export default (toolbox: GluegunToolbox): void => {
 
 function clearEncrypted(target: string) {
   if (!filesystem.isDirectory(target)) {
-    print.error(`Target (${target}) is not a directory!`);
+    print.warning(`Target (${target}) is not a directory!`);
     return;
   }
 
@@ -18,6 +18,10 @@ function clearEncrypted(target: string) {
 
 function discardSources(sources: string[]) {
   for (const source of sources) {
-    filesystem.remove(source);
+    if (filesystem.exists(source)) {
+      filesystem.remove(source);
+    } else {
+      print.warning(`Source (${source}) does not exist!`);
+    }
   }
 }

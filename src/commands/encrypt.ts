@@ -1,11 +1,24 @@
 import { GluegunCommand } from 'gluegun';
 
+const description = `Encrypt files from <sources> locations into the <target> directory.
+Options:   --force (-f)   Skip all prompts.`;
+
 const command: GluegunCommand = {
   name: 'encrypt',
   alias: ['e'],
-  description:
-    'Encrypt files from <sources> locations into the <target> directory',
-  run: async ({ config, encryption, filesystem, print, prompt, purge }) => {
+  description,
+  run: async ({
+    config,
+    encryption,
+    filesystem,
+    parameters,
+    print,
+    prompt,
+    purge,
+  }) => {
+    const { options } = parameters;
+    const force = options.force || options.f;
+
     if (!config.sources || !config.sources.length) {
       print.error('No sources defined in the configuration file!');
       return;
@@ -16,9 +29,9 @@ const command: GluegunCommand = {
       return;
     }
 
-    const clear = await prompt.confirm(
-      `Clear encrypted files first (${config.target})?`,
-    );
+    const clear =
+      force ||
+      (await prompt.confirm(`Clear encrypted files first (${config.target})?`));
     if (clear) {
       print.info(`Clearing files (${config.target}).`);
       purge.clearEncrypted(config.target);

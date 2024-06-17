@@ -16,6 +16,14 @@ Types of Changes
 
 ## [Unreleased]
 
+### Added
+
+- Added force (`--force`, `-f`) option for every command.
+
+### Changed
+
+- Improved logging around commands.
+
 ## [0.4.1] - 2024-06-17
 
 ### Fixed
