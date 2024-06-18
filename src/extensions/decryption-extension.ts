@@ -1,13 +1,5 @@
 import { createDecipheriv } from 'crypto';
-import {
-  existsSync,
-  mkdirSync,
-  readFileSync,
-  readdirSync,
-  statSync,
-  writeFileSync,
-} from 'fs';
-import { GluegunToolbox } from 'gluegun';
+import { filesystem, GluegunToolbox } from 'gluegun';
 
 const encryptionAlgorithm = 'aes256';
 let secretKey = 'my-secret-key';
@@ -49,11 +41,10 @@ export function decryptFile(
   outputPath: string,
   debug = false,
 ): void {
-  if (existsSync(inputPath) && statSync(inputPath).isFile()) {
-    const data = readFileSync(inputPath, 'utf-8');
-    const encrypted = decrypt(data, debug);
-
-    writeFileSync(outputPath, encrypted, 'utf-8');
+  if (filesystem.isFile(inputPath)) {
+    const data = filesystem.read(inputPath);
+    const decrypted = decrypt(data, debug);
+    filesystem.write(outputPath, decrypted);
   } else {
     throw new Error(`File not found: ${inputPath}`);
   }
@@ -64,15 +55,13 @@ export function decryptDirectory(
   outputPath: string,
   debug = false,
 ): void {
-  if (existsSync(inputPath) && statSync(inputPath).isDirectory()) {
-    const files = readdirSync(inputPath);
+  if (filesystem.isDirectory(inputPath)) {
+    const files = filesystem.list(inputPath);
 
-    if (!existsSync(outputPath)) {
-      mkdirSync(outputPath, { recursive: true });
-    }
+    filesystem.dir(outputPath);
 
     for (const file of files) {
-      if (statSync(`${inputPath}/${file}`).isDirectory()) {
+      if (filesystem.isDirectory(`${inputPath}/${file}`)) {
         decryptDirectory(
           `${inputPath}/${file}`,
           `${outputPath}/${decrypt(file)}`,

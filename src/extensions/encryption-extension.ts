@@ -1,12 +1,4 @@
 import { createCipheriv } from 'crypto';
-import {
-  existsSync,
-  mkdirSync,
-  readFileSync,
-  readdirSync,
-  statSync,
-  writeFileSync,
-} from 'fs';
 import { filesystem, GluegunToolbox, print } from 'gluegun';
 
 const encryptionAlgorithm = 'aes256';
@@ -54,11 +46,10 @@ function encrypt(data: string, debug = false): string {
 }
 
 function encryptFile(inputPath: string, outputPath: string, debug = false) {
-  if (existsSync(inputPath) && statSync(inputPath).isFile()) {
-    const data = readFileSync(inputPath, 'utf-8');
+  if (filesystem.isFile(inputPath)) {
+    const data = filesystem.read(inputPath);
     const encrypted = encrypt(data, debug);
-
-    writeFileSync(outputPath, encrypted, 'utf-8');
+    filesystem.write(outputPath, encrypted);
   } else {
     throw new Error(`File not found: ${inputPath}`);
   }
@@ -69,15 +60,13 @@ function encryptDirectory(
   outputPath: string,
   debug = false,
 ) {
-  if (existsSync(inputPath) && statSync(inputPath).isDirectory()) {
-    const files = readdirSync(inputPath);
+  if (filesystem.isDirectory(inputPath)) {
+    const files = filesystem.list(inputPath);
 
-    if (!existsSync(outputPath)) {
-      mkdirSync(outputPath, { recursive: true });
-    }
+    filesystem.dir(outputPath);
 
     for (const file of files) {
-      if (statSync(`${inputPath}/${file}`).isDirectory()) {
+      if (filesystem.isDirectory(`${inputPath}/${file}`)) {
         encryptDirectory(
           `${inputPath}/${file}`,
           `${outputPath}/${encrypt(file)}`,

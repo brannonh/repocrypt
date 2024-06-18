@@ -16,6 +16,10 @@ Types of Changes
 
 ## [Unreleased]
 
+### Fixed
+
+- Addressed issue writing a file as an entry in <sources>.
+
 ## [0.5.2] - 2024-06-17
 
 ### Fixed
